@@ -24,10 +24,10 @@ export default function Login (props) {
                     password: ''
                 });
                 setLoginStatus('OK then, welcome friend');
-                this.props.history.push("/protected");
+                props.history.push("/protected");
             })
             .catch(err => {
-                // console.log(err.response);
+                console.log(err.response.data.error);
                 setLoginStatus(err.response.data.error);
                 setCreds({
                     username: '',
