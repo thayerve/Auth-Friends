@@ -9,16 +9,21 @@ function FriendsList () {
         axiosWithAuth()
         .get(' http://localhost:5000/api/friends')
         .then(res => {
-            console.log('friends get response: ', res);
-            // setFriends(...friends, res.data)
+            // console.log('friends get response: ', res);
+            setFriends(...friends, res.data);
         })
         .catch(err => console.log("Uh oh! Error:", err.response.status, err.response.data.error));
 
-    })
+    }, []);
 
-    return(
-        <h1>A list of friends will go here!</h1>
-    )
+    return (
+        <div>
+        <h1>You're in good company, pard'ner</h1>
+        {friends.map(friend => (
+            <p key={friend.id}>My pal {friend.name} is {friend.age} years old and I email them all the time at {friend.email}</p>
+        ))}
+        </div>
+    );
     
 }
 
