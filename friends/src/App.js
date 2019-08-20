@@ -15,11 +15,11 @@ function App() {
             <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/friendslist">Friends List</Link>
+            <Link to="/protected">Friends List</Link>
           </li>
         </ul>
-        <Route path="/login" component={Login} />
-        <PrivateRoute exact path="/friendslist" component={FriendsList} />
+        <Route path="/login" render={(props)=><Login {...props}/>} />
+        <PrivateRoute exact path="/protected" component={FriendsList} />
     </div>
     </Router>
   );

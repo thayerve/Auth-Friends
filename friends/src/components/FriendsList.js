@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import AddFriend from './AddFriend';
 
-function FriendsList () {
+function FriendsList (props) {
     const [friends, setFriends] = useState([]);
 
     useEffect(() => {
@@ -20,8 +21,10 @@ function FriendsList () {
         <div>
         <h1>You're in good company, pard'ner</h1>
         {friends.map(friend => (
-            <p key={friend.id}>My pal {friend.name} is {friend.age} years old and I email them all the time at {friend.email}</p>
+            <p key={friend.id}>My old pal {friend.name} is {friend.age} years old and I chat to 'em them all the time at {friend.email}.</p>
         ))}
+        <br/>
+        <AddFriend />
         </div>
     );
     

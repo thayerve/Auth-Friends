@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function Login () {
+export default function Login (props) {
     const [creds, setCreds] = useState({
         username: '',
         password: ''
@@ -9,7 +9,7 @@ export default function Login () {
     const [loginStatus, setLoginStatus] = useState('');
     
     function handleChange(e){
-        setCreds({...creds, [e.target.name]: e.target.value })
+        setCreds({...creds, [e.target.name]: e.target.value });
     }
 
     function login(e){
@@ -24,6 +24,7 @@ export default function Login () {
                     password: ''
                 });
                 setLoginStatus('OK then, welcome friend');
+                this.props.history.push("/protected");
             })
             .catch(err => {
                 // console.log(err.response);
@@ -33,9 +34,7 @@ export default function Login () {
                     password: ''
                 })
             });
-        
     }
-
     
     return (
         <div>
