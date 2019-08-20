@@ -6,7 +6,7 @@ function FriendsList (props) {
     const [newFriend, setNewFriend] = useState({
         id: Date.now(),
         name: '',
-        age: 0,
+        age: '',
         email: ''
     });
 
@@ -23,7 +23,7 @@ function FriendsList (props) {
         setNewFriend({
             id: Date.now(),
             name: '',
-            age: null,
+            age: '',
             email: ''
         })
     };
@@ -39,7 +39,7 @@ function FriendsList (props) {
         })
         .catch(err => console.log("Uh oh! Error displaying friends: ", err.response.status, err.response.data.error));
 
-    }, [friends]);
+    }, []);
 
     return (
         <div>
